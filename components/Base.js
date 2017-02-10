@@ -3,7 +3,6 @@ import City from './City';
 
 const Base = ({ cities, triggerReload, triggerBaseReload }) => {
 	const cityList = cities.map((cityName, index) => {
-		console.log('THE CITY: ', cityName);
 		return (
 			<City 
 				cityName={cityName} 

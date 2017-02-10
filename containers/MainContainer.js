@@ -5,7 +5,6 @@ import rebase from '../config/rebase';
 class MainContainer extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log('The props in main are: ', props)
 		this.state = {
 			title: this.props.params.location || 'Foodies'
 		};
@@ -18,7 +17,6 @@ class MainContainer extends React.Component {
 		});
 	}
 	componentWillReceiveProps(newProps) {
-		console.log('Recieving props', newProps);
 		this.setState({
 			title: newProps.params.location || 'Foodies'
 		});

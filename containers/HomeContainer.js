@@ -15,8 +15,6 @@ const base = Rebase.createClass({
 class HomeContainer extends React.Component {
 	constructor(props) {
 		super();
-		// super(props);
-		// console.log('The props are: ', props);
 		this.state = {
 			food: [],
 			isLoading: true,
@@ -28,7 +26,6 @@ class HomeContainer extends React.Component {
 		  context: this,
 		  asArray: true,
 		  then(data) {
-		    console.log('retrieved data', data);
 		  }
 		});
 

@@ -119,5 +119,23 @@ If we find ourselves wanting to have a prop that is available globally, we use c
 automatically passes down variables from component to component without needing to pass down 
 props at every level.
 
+## Rebase
+
+We'll use re-base as the way to connect with our Firebase app. Assuming we have a Firebase app ready and we have the config, we'll set up a Firebase first in our Main Container, or whichever container will hold all of our components. Not sure why this needs to be, but once you declare the variable and have the Rebase instance set up, you can begin using it anywhere.
+
+## Passing Props to {children} Elements
+
+If you have a higher-level element (such as Main in our case) and you want to pass props to it, you can use this
+syntax:
+
+```js
+{React.cloneElement(children, {triggerReload})}
+```
+
+Normally you would just use `{children}` here, which would just render the children. The children in this case
+would be all the routes nested within this Route (since we are rendering via the routes in `routes.js`), which we see happen in `index.js`.
+
+So if you have something that needs to run in a child element, such as a button in a child component that will change the title of something in a higher level container, pass the function as props to the child component, and the child can trigger it.
+
 
 

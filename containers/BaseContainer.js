@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Match from 'react-router';
 import Rebase from 're-base';
 import Base from '../components/Base';
-import Test from '../components/Test';
 import PlaceContainer from './PlaceContainer';
 
 const rebase = Rebase.createClass({
@@ -29,66 +28,24 @@ class BaseContainer extends React.Component {
 		};
 
 		this.triggerBaseReload = this.triggerBaseReload.bind(this);
+		this.updatePlacesWithLocation = this.updatePlacesWithLocation.bind(this);
 	}
 	componentWillMount() {
-		// rebase.fetch('locations', {
-		// 	context: this,
-		// 	asArray: true,
-		// 	then(data) {
-		// 		const cities = data.map(city => {
-		// 			return city.name;
-		// 		});
-		// 		this.setState({
-		// 			cities,
-		// 			allData: data,
-		// 		});
-		// 	}
-		// });
-		
-		// let loc;
-		// // Grabs all the locations and their data
-		// rebase.fetch('locations', {
-		// 	context: this,
-		// 	asArray: true,
-		// 	then(data) {
-		// 		console.log('LOCATIONS: ', data);
-		// 		loc = data;
-				
-		// 		// Set target to be the object containing the data for
-		// 		// Fountain Valley
-		// 		let target = loc.filter(location => {
-		// 			return location.city === "Fountain Valley"
-		// 		});
-
-		// 		// Fetches data from the target key. This will make it
-		// 		// easier to transition to a fetch query that isn't
-		// 		// dependent on the data being stored in the location object.
-		// 		rebase.fetch(`locations/${target[0].key}/places`, {
-		// 			context: this,
-		// 			asArray: true,
-		// 			then(data) {
-		// 				console.log('The places in FV: ', data);
-		// 				let places = data;
-		// 			}
-		// 		});
-		// 	}
-		// });
-
 		// First grab the current locations data and populate the allLocations state.
 		rebase.fetch('locations', {
 			context: this,
 			asArray: true,
 			then(data) {
-				console.log('IN LOCATIONS FETCH');
 				const cities = data.map(location => {
 					return location.city;
 				});
-				console.log('The cities: ', cities);
 				this.setState({
 					allLocations: data,
 					cities,
 					isLoading: false,
 				});
+
+				this.updatePlacesWithLocation();
 			}
 		});
 		
@@ -98,47 +55,30 @@ class BaseContainer extends React.Component {
 			state: 'allLocations',
 			asArray: true,
 			then(data) {
-				console.log('IN THE SYNC STATE');
-				console.log(this.state);
 			}
 		});
 	}
-	triggerBaseReload(name) {
-		console.log('The name in the base reload is: ', name);
+	updatePlacesWithLocation() {
+		console.log(this.state.display);
 		const city = this.state.allLocations.filter(location => {
-			return location.city === name;
+			return location.city === this.state.display;
 		});
-		console.log('The city data: ', city);
-		let cityPlaces = city[0].places;
-		
-		// let cityPlaces = this.state.allLocations.filter(location => {
-		// 	if (location.city === name) {
-		// 		return true;
-		// 	}
-		// }).map(location => {
-		// 	return location.places;
-		// });
 
-		// console.log('The cityPlaces is: ', cityPlaces.forEach(place => ));
+		const cityPlaces = city[0].places;
+
 		this.setState({
 			places: cityPlaces,
 		});
+	}
+	triggerBaseReload(name) {
+		const city = this.state.allLocations.filter(location => {
+			return location.city === name;
+		});
+		let cityPlaces = city[0].places;
 
-		// this.setState({
-		// 	display: name,
-		// 	places: cityPlaces,
-		// 	allLocations: this.state.allLocations.concat({
-		// 		city: 'Fountain Valley',
-		// 		state: 'CA',
-		// 		key: this.state.allLocations.length.toString(),
-		// 		places: [
-		// 			{
-		// 				name: 'G Burger',
-		// 				rating: 4
-		// 			}
-		// 		],
-		// 	})
-		// });
+		this.setState({
+			places: cityPlaces,
+		});
 	}
 	render() {
 		if (this.state.isLoading) {
