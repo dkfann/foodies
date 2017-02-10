@@ -1,0 +1,4 @@
+# Planned Features
+
+1. Show item with calendar date.
+
