@@ -6,14 +6,21 @@ class MainContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			title: this.props.params.location || 'Foodies'
+			title: this.props.params.location || 'Foodies',
+			shownModal: null,
 		};
 
 		this.triggerReload = this.triggerReload.bind(this);
+		this.triggerModalState = this.triggerModalState.bind(this);
 	}
 	triggerReload(title) {
 		this.setState({
 			title
+		});
+	}
+	triggerModalState(modal) {
+		this.setState({
+			shownModal: modal,
 		});
 	}
 	componentWillReceiveProps(newProps) {
@@ -27,6 +34,8 @@ class MainContainer extends React.Component {
 				children={ this.props.children }
 				title= { this.state.title }
 				triggerReload = { this.triggerReload }
+				currentModal={ this.state.shownModal }
+				triggerModalState={ this.triggerModalState }
 			/>
 		);
 	}

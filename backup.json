@@ -1,0 +1,81 @@
+{
+  "foods" : [ {
+    "test" : "1"
+  } ],
+  "location" : [ {
+    "name" : "Fountain Valley",
+    "places" : {
+      "place0" : {
+        "name" : "Alertos",
+        "rating" : 5
+      }
+    }
+  }, {
+    "name" : "New York",
+    "places" : {
+      "place1" : {
+        "name" : "Gramercy Tavern",
+        "rating" : 5
+      }
+    }
+  }, {
+    "name" : "Chicago",
+    "places" : {
+      "place1" : {
+        "name" : "Wiener Circle",
+        "rating" : 4
+      }
+    }
+  }, {
+    "name" : "San Francisco",
+    "places" : {
+      "place1" : {
+        "name" : "SF Beats",
+        "rating" : 3
+      }
+    }
+  } ],
+  "locations" : [ {
+    "city" : "Fountain Valley",
+    "key" : "0",
+    "places" : [ {
+      "name" : "Alertos",
+      "rating" : 5
+    }, {
+      "name" : "Shinsengumi",
+      "rating" : 4
+    } ],
+    "state" : "CA"
+  }, {
+    "city" : "New York",
+    "key" : "1",
+    "places" : [ {
+      "name" : "Gramercy Tavern",
+      "rating" : 5
+    } ],
+    "state" : "NY"
+  }, {
+    "city" : "Boulder",
+    "key" : "2",
+    "places" : [ {
+      "name" : "Kings Place",
+      "rating" : 3
+    } ],
+    "state" : "CO"
+  }, {
+    "city" : "Albuquerque",
+    "key" : "3",
+    "places" : [ {
+      "name" : "Los Pollos Hermanos",
+      "rating" : 1
+    } ],
+    "state" : "NM"
+  } ],
+  "places" : {
+    "place0" : {
+      "location" : "Fountain Valley, CA",
+      "name" : "Alertos",
+      "rating" : 5
+    }
+  }
+}

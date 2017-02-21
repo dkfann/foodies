@@ -1,3 +1,11 @@
 # TODO
-- Get places to show up by default
-- Style places
+2.11.17
+- [x] Get places to show up by default
+- [x] Style places
+
+2.13.17
+- [x] Implement initial add places functionality
+
+- [ ] Implement removing places functionality
+- [ ] Flesh out places details
+

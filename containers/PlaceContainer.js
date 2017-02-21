@@ -12,16 +12,27 @@ class PlaceContainer extends React.Component {
 				}
 			]
 		};
+
+		this.handleEditPlace = this.handleEditPlace.bind(this);
+		this.handleDeletePlace = this.handleDeletePlace.bind(this);
 	}
 	componentWillReceiveProps(newProps) {
 		this.setState({
 			places: newProps.places
 		});
 	}
+	handleEditPlace() {
+		console.log('Clicked edit place!');
+	}
+	handleDeletePlace() {
+		this.props.triggerModalState('DELETE_PLACE');
+	}
 	render() {
 		return (
 				<Place
 					places={this.state.places}
+					handleEditPlace={this.handleEditPlace}
+					handleDeletePlace={this.handleDeletePlace}
 				/>
 		);
 	}
