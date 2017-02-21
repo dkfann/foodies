@@ -12,8 +12,9 @@ class City extends React.Component {
 		this.handleCityClick = this.handleCityClick.bind(this);
 	}
 	handleCityClick() {
+		console.log('The index of the city clicked: ', this.props.index );
 		this.props.triggerReload(this.props.cityName);
-		this.props.triggerBaseReload(this.props.cityName);
+		this.props.updateCurrentLocationIndex(this.props.index);
 		browserHistory.push(`/#${this.props.cityName}`);
 		this.setState({
 			clicked: true,

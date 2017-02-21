@@ -9,7 +9,7 @@ export default (
 	<Router history={hashHistory}>
 		<Route path="/" component={ MainContainer }>
 			<IndexRoute component= { BaseContainer }/>
-			<Route path="/:location" component={BaseContainer} />
+			<Route path="/:location" component={ BaseContainer } test="test" />
 		</Route>
 	</Router>
 );

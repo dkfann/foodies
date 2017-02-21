@@ -1,14 +1,20 @@
 import React from 'react';
 import City from './City';
 
-const Base = ({ cities, triggerReload, triggerBaseReload }) => {
+const Base = (props) => {
+	const {
+		cities, 
+		triggerReload, 
+		updateCurrentLocationIndex,
+	} = props;
 	const cityList = cities.map((cityName, index) => {
 		return (
 			<City 
 				cityName={cityName} 
 				key={index} 
+				index={index}
 				triggerReload={triggerReload}
-				triggerBaseReload={triggerBaseReload}
+				updateCurrentLocationIndex={ updateCurrentLocationIndex }
 			/>
 		)
 	});

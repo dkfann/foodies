@@ -13,6 +13,8 @@ const Main = (props) => {
 		updateLocationState,
 		updatePlaceState,
 		currentData,
+		getAllLocationData,
+		isLoading,
 	} = props;
 	return (
 		<div className="o-main-container" style={Style.main}>
@@ -24,7 +26,7 @@ const Main = (props) => {
 				updatePlaceState={ updatePlaceState }
 				currentData={ currentData }
 			/>
-			{React.cloneElement(children, {triggerReload, triggerModalState, updatePlaceState })}
+			{React.cloneElement(children, {triggerReload, triggerModalState, updatePlaceState, getAllLocationData, isLoading })}
 		</div>
 	)
 }

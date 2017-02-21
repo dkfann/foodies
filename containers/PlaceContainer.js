@@ -32,7 +32,7 @@ class PlaceContainer extends React.Component {
 	render() {
 		return (
 				<Place
-					places={this.state.places}
+					places={this.props.places}
 					handleEditPlace={this.handleEditPlace}
 					handleDeletePlace={this.handleDeletePlace}
 				/>
