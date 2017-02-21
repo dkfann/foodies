@@ -24,7 +24,9 @@ class PlaceContainer extends React.Component {
 	handleEditPlace() {
 		console.log('Clicked edit place!');
 	}
-	handleDeletePlace() {
+	handleDeletePlace(index) {
+		console.log('The index: ', index );
+		this.props.updatePlaceState(index);
 		this.props.triggerModalState('DELETE_PLACE');
 	}
 	render() {

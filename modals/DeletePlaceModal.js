@@ -27,9 +27,14 @@ class DeletePlaceModal extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleModalClose = this.handleModalClose.bind(this);
+		this.handleDeletePlace = this.handleDeletePlace.bind(this);
 	}
 	handleModalClose() {
 		this.props.triggerModalState(null);
+	}
+	handleDeletePlace() {
+		console.log(this.props);
+		console.log(this.props.currentData());
 	}
 	render() {
 		return (
@@ -46,7 +51,7 @@ class DeletePlaceModal extends React.Component {
 						</div>
 					</section>
 					<footer className="modal-card-foot">
-						<button className="button is-danger">Yes</button>
+						<button className="button is-danger" onClick={this.handleDeletePlace}>Yes</button>
 						<button className="button is-success" onClick={this.handleModalClose}>No</button>
 					</footer>
 				</div>

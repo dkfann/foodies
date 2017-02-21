@@ -27,7 +27,7 @@ const Place = ({ places, handleEditPlace, handleDeletePlace } ) => {
 						</div>
 						<div className="c-buttons control" style={Styles.placeButtons}>
 							<button className="button is-primary" onClick={handleEditPlace}>Edit Place</button>
-							<button className="button is-warning" onClick={handleDeletePlace}>Delete Place</button>
+							<button className="button is-warning" onClick={() => { handleDeletePlace(index) }}>Delete Place</button>
 						</div>
 					</div>
 				)

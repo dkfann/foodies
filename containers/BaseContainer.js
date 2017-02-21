@@ -25,7 +25,8 @@ class BaseContainer extends React.Component {
 			places: [],
 			allData: [],
 			allLocations: [],
-			selectedCity: []
+			selectedCity: [],
+			modalAction: null,
 		};
 
 		this.triggerBaseReload = this.triggerBaseReload.bind(this);
@@ -61,6 +62,9 @@ class BaseContainer extends React.Component {
 			then(data) {
 			}
 		});
+	}
+	componentWillReceiveProps(newProps) {
+		console.log('The new props: ', newProps);
 	}
 	updatePlacesWithLocation() {
 		console.log(this.state.display);
@@ -114,6 +118,10 @@ class BaseContainer extends React.Component {
 	deletePlaceFromLocation() {
 		console.log('Going to delete a place.');
 	}
+	getPlaceFromIndex(indexData) {
+		// We need the index of the location and the place to find the data.
+		
+	}
 	render() {
 		if (this.state.isLoading) {
 			return (
@@ -132,6 +140,7 @@ class BaseContainer extends React.Component {
 						places={ this.state.places }
 						triggerModalState={ this.props.triggerModalState }
 						triggerDeletePlace={ this.deletePlaceFromLocation }
+						updatePlaceState={ this.props.updatePlaceState }
 					/>
 					<AddEntryContainer
 						addPlaceToLocation={ this.addPlaceToLocation }/>
